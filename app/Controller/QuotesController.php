@@ -7,6 +7,40 @@ App::uses('AppController', 'Controller');
  */
 class QuotesController extends AppController {
 
+
+	public function isAuthorized($user){
+
+
+		if($this->action == 'add'){
+
+			if(isset($user['group_id']) && $user['group_id'] > 0){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		// if($this->action == 'edit' || $this->action == 'delete'){
+		if(in_array($this->action, array('edit','delete'))){
+
+
+			// ok pour les moderateurs
+			if(isset($user['group_id']) && $user['group_id'] == 2){
+				return true;
+			}
+			else {
+				//quotes/edit/6, quote_id is 6
+				$quote_id = $this->request->params['pass'][0];
+				$user_id = $user['id'];
+			}
+		
+	}
+
+		return parent::isAuthorized($user);
+	}
+
+
 /**
  * index method
  *
