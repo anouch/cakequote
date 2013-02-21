@@ -740,3 +740,15 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+
+
+/** code perso **/
+
+#connection {
+	float:right;
+	color:#fff;
+}
+
+#connection a{
+	color:#fff;
+}
