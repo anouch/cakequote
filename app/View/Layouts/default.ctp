@@ -38,7 +38,7 @@
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link('cakequote', '/'); ?></h1>
-
+			<h2><?php echo $me['username']; ?></h2>
 		</div>
 		 <?php 
  	

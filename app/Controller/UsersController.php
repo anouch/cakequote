@@ -25,9 +25,10 @@ class UsersController extends AppController {
 
 	public function isAuthorized($user){
 
-		if($this->action == 'delete'){
-			return false;
-		}
+		if($this->action == 'delete'  && $user['id'] ==1) {
+ 	 	   return true;
+ 	 	}
+
 
 		if($this->action == 'edit'){
 
