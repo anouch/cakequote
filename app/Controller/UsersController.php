@@ -19,6 +19,7 @@ class UsersController extends AppController {
 
 		parent::beforeFilter();
 		$this->Auth->allow('add');
+		$this->Auth->allow('logout');
 
 	}
 
@@ -69,9 +70,10 @@ class UsersController extends AppController {
 	}
 
 	public function logout(){
-		$this->redirect(
-			$this->Auth->logout()
-		);
+
+		$this->Auth->logout();
+		$this->Session->setFlash("Vous êtes maintenant déconnecté");
+		$this->redirect('/');
 	}
 
 
